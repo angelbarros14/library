@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    height: 90px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.09);
+}
+
+header > span {
+    font-size: 35px;
+    font-weight: 700;
+    margin-left: 100px;
+    letter-spacing: -2px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: whitesmoke;
+}
+
+.addBook {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.addBook > button {
+   padding: 10px;
+   font-family: "Inter", sans-serif;
+   font-weight: 700;
+   font-size: 24px;
+   letter-spacing: -.9px;
+   border-radius: 10px;
+   border-style: none;
+}
+
+.addBook > button:hover {
+    background-color: lightgray;
+}
+
+#books {
+    margin: 20px;
+    display: flex;
+}
+
+.newBook {
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    flex-direction: column;
+    min-width: 350px;
+    height: 300px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.09);
+}
+
+.newBook > span {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.newBook > button {
+    padding: 10px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    width: 250px;
+    letter-spacing: -.9px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+.newBook > button:hover {
+    background-color: lightgray;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden !important;
+    padding: 20px;
+    width: 250px;
+    height: 300px;
+}
+
+dialog:open {
+    display: flex;
+    border-radius: 10px;
+    border-style: none;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.09);
+}
+
+.inputHeader {
+    text-align: center;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.inputText {
+    border-style: none;
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.inputCheckbox {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.3);
+}
+
+.inputSubmit {
+    padding: 10px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    width: 250px;
+    letter-spacing: -.9px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #B3E6B5;
+}

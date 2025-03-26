@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./index.css">
+        <script src="script.js" defer></script>
+        <title>Library</title>
+    </head>
+    <body>
+
+        <header>
+            <span>library</span>
+        </header>
+
+        <main>
+
+            <div class="addBook">
+            <button class="addButton">+ Add book</button>
+            </div>
+
+            <div class="dialog">
+                <dialog>
+                    <form method="dialog">
+                        <span class="inputHeader">Add new book</span>
+                        <input autocomplete="off" class="inputText" autofocus name="title" placeholder="Title" type="text" required>
+                        <input autocomplete="off" class="inputText" name="author" placeholder="Author" type="text" required>
+                        <input autocomplete="off" class="inputText" name="pages" placeholder="Pages" type="number" required> 
+                        <label for="read" class="inputCheckbox">Have you read it?
+                            <input type="checkbox" name="read" id="read">
+                        </label>
+                        <button type="submit" class="inputSubmit">Submit</button>
+                    </form>
+                </dialog>
+            </div>
+
+            <div id="books">
+            </div>
+
+        </main>
+    </body>
+</html>
