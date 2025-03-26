@@ -29,7 +29,7 @@ function displayBook() {
         divBook.classList.add("newBook");
 
         const title = document.createElement("span");
-        title.textContent= `"${book.title}"`;
+        title.textContent= book.title;
         divBook.appendChild(title);
 
         const author = document.createElement("span");
@@ -41,14 +41,34 @@ function displayBook() {
         divBook.appendChild(pages);
 
         const statusButton = document.createElement("button");
-        statusButton.textContent= `${book.read ? "Read" : "Not Read"}`;
-        statusButton.style.backgroundColor = `${book.read ? "#B3E6B5" : "#FF7F7F"}`;
+        statusButton.classList.add("statusButton")
+        statusButton.textContent= book.read ? "Read" : "Not Read";
+        statusButton.style.backgroundColor = book.read ? "#B3E6B5" : "#FF7F7F";
         divBook.appendChild(statusButton);
 
         const removeButton = document.createElement("button");
         removeButton.classList.add("removeButton")
         removeButton.textContent = "Remove";
         divBook.appendChild(removeButton);
+
+        removeButton.addEventListener("click", () => {
+            const bookIndex = myLibrary.findIndex(item => item.id === book.id);
+            if (bookIndex !== -1) {
+                myLibrary.splice(bookIndex, 1);
+
+                divBook.remove();
+            }
+        })
+
+        statusButton.addEventListener("click", () => {
+            const bookIndex = myLibrary.findIndex(item => item.id === book.id);
+            if (bookIndex !== -1) {
+                myLibrary[bookIndex].read = !myLibrary[bookIndex].read;
+
+                statusButton.textContent = myLibrary[bookIndex].read ? "Read" : "Not read";
+                statusButton.style.backgroundColor = myLibrary[bookIndex].read ? "#B3E6B5" : "#FF7F7F";
+            }
+        })
 
         books.appendChild(divBook);
     })
@@ -75,22 +95,28 @@ function closeDialog(event) {
 document.addEventListener("click", closeDialog)
 
 function addBook() {
-    const form = document.querySelector("form")
-    const close = document.querySelector("#close");
+    const form = document.querySelector("form");
 
-    form.addEventListener("submit", () => {
-        const title = document.querySelector("#title").value;
-        const author = document.querySelector("#author").value;
-        const pages = document.querySelector("#pages").value;
-        const read = document.querySelector("#read").checked;
+    form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const pages = document.querySelector("#pages").value;
+    const read = document.querySelector("#read").checked;
 
-    title && author && pages ? addBookToLibrary(new Book(title, author, pages, read)) : alert("Please fill out all fields");
-    displayBook()
-    form.reset();
+    if (title && author && pages) {
+        const newBook = new Book(title, author, pages, read);
+        addBookToLibrary(newBook);
+        displayBook();
+        dialog.close();
+        form.reset();
+    } else {
+        alert("Please fill out all fields")
+    }
+
     })
 }
 
 addBook()
-
 
 console.log(myLibrary)
